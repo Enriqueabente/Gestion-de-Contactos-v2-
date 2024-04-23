@@ -1,0 +1,77 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+	<servers>
+		<server>
+			<id>millicom-nexus-mirror</id>
+			<username>admin</username>
+			<password>LTLmv4sPnAp9Hpb</password>
+			<configuration>
+				<httpHeaders>
+					<property>
+						<name>Private-Token</name>
+						<value>XXXXXXXXXX</value>
+					</property>
+				</httpHeaders>
+			</configuration>
+
+		</server>
+		<server>
+			<id>millicom-nexus-cbs-mirror</id>
+			<username>admin</username>
+			<password>LTLmv4sPnAp9Hpb</password>
+			<configuration>
+				<httpHeaders>
+					<property>
+						<name>Private-Token</name>
+						<value>XXXXXXXXXX</value>
+					</property>
+				</httpHeaders>
+			</configuration>
+
+		</server>
+	</servers>
+
+	<mirrors>
+		<mirror>
+			<id>millicom-nexus-mirror</id>
+			<name>Mirror</name>
+			<url>http://3.208.115.4:30081/repository/maven-public</url>
+			<mirrorOf>millicom-nexus</mirrorOf>
+
+		</mirror>
+		<mirror>
+			<id>millicom-nexus-cbs-mirror</id>
+			<name>Mirror CBS</name>
+			<url>http://3.208.115.4:30081/repository/maven-public-cbs</url>
+			<mirrorOf>millicom-nexus-cbs</mirrorOf>
+
+		</mirror>
+		<mirror>
+			<id>maven-default-http-blocker</id>
+			<mirrorOf>external:dummy:*</mirrorOf>
+			<name>Pseudo repository to mirror external repositories initially using HTTP.</name>
+			<url>http://0.0.0.0/</url>
+			<blocked>true</blocked>
+		</mirror>
+
+	</mirrors>
+	
+    <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                
+                <sonar.host.url>
+                	https://54.81.5.122:31645
+                </sonar.host.url>
+            </properties>
+        </profile>
+     </profiles>
+</settings>
